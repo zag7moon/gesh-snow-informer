@@ -1,8 +1,5 @@
 FROM node:10.20.1
 
-ARG SSH_PRIVATE_KEY
-ARG CONFIG_JS
-
 RUN apt-get update
 
 # Installing the packages needed to run Nightmare

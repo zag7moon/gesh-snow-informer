@@ -1,7 +1,7 @@
-// const xvfb = require('../lib/xvfb')
+const xvfb = require('../lib/xvfb')
 
 async function getSnowLevel (url) {
-  // const close = await xvfb()
+  const close = await xvfb()
   const nightmare = require('../lib/nightmare')
 
   console.log('Visit page', url)
@@ -9,7 +9,7 @@ async function getSnowLevel (url) {
   await nightmare.wait('#archiveTable div.sss_0.dfs')
   const snowLevel = await nightmare.evaluate(() => document.querySelectorAll('#archiveTable div.sss_0.dfs')[0].textContent)
   await nightmare.end()
-  // await close()
+  await close()
 
   return snowLevel
 }
