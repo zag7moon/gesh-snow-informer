@@ -17,6 +17,8 @@
 - TOKEN: Токен бота,
 - CHAT_ID: идентификатор чата в который нужно отправить сообщение,
 - WEATHER_URL: Адрес страницы на которой расположен архив погоды
+- CITY_ID: id города в openweathermap
+- OPENWEATHERMAP_API_KEY: api ключ в openweathermap
 
 ## Запуск приложения
 
