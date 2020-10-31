@@ -1,0 +1,31 @@
+{
+  "name": "gesh-snow-informer",
+  "version": "1.0.0",
+  "description": "Scraping snow level from rp5.ru and push it to chat.",
+  "main": "index_old.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zag7moon/gesh-snow-informer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zag7moon/gesh-snow-informer/issues"
+  },
+  "homepage": "https://github.com/zag7moon/gesh-snow-informer#readme",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "nightmare": "^3.0.2",
+    "nightmare-download-manager": "^0.2.5",
+    "nodemon": "^2.0.6",
+    "number-to-emoji": "^1.0.0",
+    "xvfb": "^0.3.0"
+  }
+}
