@@ -1,8 +1,11 @@
 const xvfb = require('../lib/xvfb')
+const Nightmare = require('nightmare')
 
 async function getSnowLevel (url) {
   const close = await xvfb()
-  const nightmare = require('../lib/nightmare')
+
+  console.log('Setting up nightmare...')
+  const nightmare = Nightmare({ show: true })
 
   console.log('Visit page', url)
   await nightmare.goto(url)
