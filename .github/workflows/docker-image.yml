@@ -19,6 +19,8 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build the Docker image
+        with:
+          DOT_ENV: ${{ secrets.DOT_ENV }}
         run: |
           echo $DOT_ENV >> .env
           docker build -t $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7) .
