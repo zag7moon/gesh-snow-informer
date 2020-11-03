@@ -15,14 +15,14 @@ async function informChat () {
   try {
     const snowLevel = await getSnowLevel(WEATHER_URL)
     const { weather, main: { temp }} = await getCurrentWeatherByCityId(CITY_ID)
-    const text =`${toEmoji(snowLevel)} сантиметра ❄️❄️ \nСейчас ${weather[0].description}, ${Math.round(temp)} ℃`
+    const text =`${toEmoji(snowLevel)} сантиметра(-ов) ❄️❄️ \nСейчас ${weather[0].description}, ${Math.round(temp)} ℃`
     await axios.post(`https://api.telegram.org/bot${TOKEN}/sendMessage?chat_id=${CHAT_ID}&text=${encodeURIComponent(text)}`)
   } catch (e) {
     console.error(e)
   }
 }
 
-const job = new CronJob('0 0 8 * * *', informChat, null, true, 'Asia/Krasnoyarsk');
+const job = new CronJob('0 0 9 * * *', informChat, null, true, 'Asia/Krasnoyarsk');
 
 job.start();
 
