@@ -20,11 +20,11 @@ jobs:
 
       - name: Echo .env
         env:
-          DOT_ENV: ${{secrets.DOT_ENV}}
+          DOT_ENV: ${{ secrets.DOT_ENV }}
         run: 'echo "$DOT_ENV" > .env'
 
       - name: Build the Docker image
-        run: docker build -t $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7) .
+        run: docker build -t $(echo $REGISTRY)/$(echo $IMAGE_NAME):latest .
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
@@ -35,7 +35,7 @@ jobs:
         run: doctl registry login --expiry-seconds 600
 
       - name: Push image to DigitalOcean Container Registry
-        run: docker push $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
+        run: docker push $(echo $REGISTRY)/$(echo $IMAGE_NAME):latest
 
   deploy:
     runs-on: ubuntu-latest
@@ -61,4 +61,4 @@ jobs:
             docker run -d \
             --restart always \
             --name $(echo $IMAGE_NAME) \
-            $(echo $REGISTRY)/$(echo $IMAGE_NAME):$(echo $GITHUB_SHA | head -c7)
+            $(echo $REGISTRY)/$(echo $IMAGE_NAME):latest

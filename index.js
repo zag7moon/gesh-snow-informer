@@ -10,6 +10,7 @@ const TOKEN = process.env.TOKEN
 const CHAT_ID = process.env.CHAT_ID
 const WEATHER_URL = process.env.WEATHER_URL;
 const CITY_ID = process.env.CITY_ID;
+const SYNC_AT = process.env.SYNC_AT;
 
 async function informChat () {
   try {
@@ -22,7 +23,7 @@ async function informChat () {
   }
 }
 
-const job = new CronJob('0 0 9 * * *', informChat, null, true, 'Asia/Krasnoyarsk');
+const job = new CronJob(`0 0 ${SYNC_AT} * * *`, informChat, null, true, 'Asia/Krasnoyarsk');
 
 job.start();
 
